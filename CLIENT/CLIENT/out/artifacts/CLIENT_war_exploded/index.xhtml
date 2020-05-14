@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Home</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css"/>
+</h:head>
+<h:body>
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="scripts/controller.js"></script>
+    <div class="container">
+        <div class="loginPage">
+            <div class="loginBanner">
+            <img style="width:100%; height:100%;" src="images/diacare/banner.jpg" />
+            </div>
+                <div class="loginpanel">
+                    <h:form id="loginForm">
+                      <p:growl id="msg" showDetail="true" life="4000" />
+                      <p:panel class="w3-panel w3-red" id="loginPnl" header="Login"
+                               style="width: 350px; margin: 0 auto;">
+
+                            <h:outputText value="Username" />
+                            <p:inputText id="username" value="#{loginView.username}"></p:inputText>
+                            <p:spacer /><p:spacer />
+                            <h:outputText value="Password" />
+                            <p:password id="password" value="#{loginView.password}"
+                                        feedback="false"></p:password>
+                            <p:message for="password"></p:message>
+
+
+                            <p:commandButton id="loginButton" action="#{loginView.login}"
+                                             value="Login" update="loginForm" ajax="true" style="float: right;">
+                            </p:commandButton>
+                      </p:panel>
+                        <div class="w3-panel w3-red" style="width: 350px; margin: 0 auto;">
+                            <p>New user? <a href="http://localhost:8082/CLIENT_war_exploded/registration.xhtml">Sign in</a>.</p>
+                        </div>
+
+                   </h:form>
+                </div>
+        </div>
+    </div>
+</h:body>
+</html>
